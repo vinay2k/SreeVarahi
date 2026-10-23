@@ -439,7 +439,6 @@ footer{
         color:#fff;
         
       }
-}
     .btn {
       display: block;
       width: max-content;
@@ -460,5 +459,11 @@ footer{
       background: #4b0000;
       color: #fff;
       transform: scale(1.05);
+    }}
+    @media (max-width: 600px) {
+    body {
+        background-size: 100% auto;
+        background-position: center top;
+        background-attachment: scroll;
     }
-    
+}
