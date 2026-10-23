@@ -1,0 +1,380 @@
+/* ================= GLOBAL ================= */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #4b0000;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    padding: 20px 10%;
+    animation: fadeInUp 1s ease forwards;
+}
+
+
+.hero h1 {
+    font-size: 2.2rem;
+    color: #4b0000;
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+    font-size: 1.7rem;
+    color: #d48400;
+    max-width: 700px;
+    margin: 2% auto;
+}
+
+
+
+@keyframes fadeInUp {
+
+    from {
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery-container {
+
+    overflow:hidden;
+    white-space:nowrap;
+    padding:20px 0;
+    margin:30px 5%;
+    position:relative;
+
+}
+
+
+.gallery {
+
+    display:inline-flex;
+    gap:20px;
+    animation:autoScroll 20s linear infinite alternate;
+
+}
+
+
+@keyframes autoScroll {
+
+    from {
+        transform:translateX(0);
+    }
+
+    to {
+        transform:translateX(-50%);
+    }
+
+}
+
+
+
+.gallery img {
+
+    width:350px;
+    height:250px;
+    border-radius:15px;
+    object-fit:cover;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    cursor:pointer;
+    transition:0.4s;
+
+}
+
+
+
+.gallery img:hover {
+
+    transform:scale(1.05);
+    opacity:0.8;
+
+}
+
+
+/* ================= POPUP ================= */
+
+.popup-overlay {
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:1000;
+
+    opacity:0;
+
+}
+
+
+
+.popup-overlay.active {
+
+    display:flex;
+    animation:fadeIn 1s forwards;
+
+}
+
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+
+}
+
+
+
+.popup-overlay img {
+
+    width:50vw;
+    max-height:70vh;
+    border-radius:15px;
+
+    object-fit:cover;
+
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+
+    opacity:0;
+
+    transform:scale(.8) translateY(30px);
+
+    transition:1s;
+
+}
+
+
+
+.popup-overlay.active img {
+
+    opacity:1;
+    transform:scale(1) translateY(0);
+
+}
+
+
+
+.fade-out {
+
+    opacity:0!important;
+    transform:scale(.95)!important;
+
+}
+
+
+
+/* ================= ARROWS ================= */
+
+
+.arrow {
+
+    position:absolute;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:2.5rem;
+
+    color:#d48400;
+
+    cursor:pointer;
+
+    background:rgba(0,0,0,.4);
+
+    border-radius:50%;
+
+    padding:10px 15px;
+
+    z-index:1010;
+
+}
+
+
+
+.arrow:hover {
+
+    background:rgba(0,0,0,.6);
+
+}
+
+
+
+.arrow.left {
+
+    left:5%;
+
+}
+
+
+.arrow.right {
+
+    right:5%;
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer {
+
+    text-align:center;
+
+    padding:60px;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    color:#4b0000;
+
+    box-shadow:0 -2px 8px rgba(0,0,0,0.1);
+
+}
+
+
+
+.linkedin-icon {
+
+    width:24px;
+    height:24px;
+
+    vertical-align:middle;
+
+    transition:.3s;
+
+}
+
+
+
+.linkedin-link:hover .linkedin-icon {
+
+    transform:translateY(-3px) scale(1.1);
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:768px){
+
+
+    .hero {
+
+        padding:20px;
+
+    }
+
+
+
+    .hero h1 {
+
+        font-size:1.6rem;
+
+    }
+
+
+
+    .hero p {
+
+        font-size:1rem;
+
+    }
+
+
+
+    .gallery-container {
+
+        margin:20px 0;
+
+    }
+
+
+
+    .gallery img {
+
+        width:260px;
+
+        height:180px;
+
+    }
+
+
+
+    .popup-overlay img {
+
+        width:90vw;
+
+    }
+
+
+
+    .arrow {
+
+        font-size:1.6rem;
+
+        padding:8px 12px;
+
+    }
+
+
+
+    footer {
+
+        padding:30px 15px;
+
+        font-size:.95rem;
+
+    }
+
+}
+
+
+
+/* ================= SMALL MOBILE ================= */
+
+
+@media(max-width:480px){
+
+
+    .gallery img {
+
+        width:220px;
+
+        height:150px;
+
+    }
+
+
+}

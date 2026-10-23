@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Design Consultation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="book-con.css">
+</head>
+<body>
+
+<div class="wizard">
+  <div class="brandline">Sree Varahi Dream & Build &nbsp;·&nbsp; Design Consultation</div>
+
+  <div class="card">
+    <div class="inlay"><div class="inlay-fill" id="inlayFill"></div></div>
+
+    <div class="steps-row" id="stepsRow">
+      <div class="step-dot-wrap">
+        <div class="step-dot active" data-step="1">1</div>
+        <div class="step-connector" data-conn="1"></div>
+      </div>
+      <div class="step-dot-wrap">
+        <div class="step-dot" data-step="2">2</div>
+        <div class="step-connector" data-conn="2"></div>
+      </div>
+      <div class="step-dot-wrap">
+        <div class="step-dot" data-step="3">3</div>
+        <div class="step-connector" data-conn="3"></div>
+      </div>
+      <div class="step-dot-wrap">
+        <div class="step-dot" data-step="4">4</div>
+      </div>
+    </div>
+    <div class="step-labels">
+      <span>Project</span><span>Vision</span><span>Budget</span><span>Contact</span>
+    </div>
+
+    <form id="wizardForm" novalidate>
+      <!-- STEP 1 -->
+      <div class="panel step-panel" data-panel="1">
+        <div class="watermark">01</div>
+        <div class="eyebrow">Step One</div>
+        <h2>Tell us about the space</h2>
+        <p class="subtitle">A few basics so we understand the scope.</p>
+
+        <div class="field">
+          <label>Project Type</label>
+          <div class="option-grid" data-group="projectType">
+            <div class="option-card" data-value="Home Interior"><span class="ring"></span>Home Interior</div>
+            <div class="option-card" data-value="Office Interior"><span class="ring"></span>Office Interior</div>
+            <div class="option-card" data-value="Renovation"><span class="ring"></span>Renovation</div>
+            <div class="option-card" data-value="Other"><span class="ring"></span>Other</div>
+          </div>
+          <div class="err-msg">Please choose a project type.</div>
+        </div>
+
+        <div class="field">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="e.g. Hyderabad">
+          <div class="err-msg">Please enter a location.</div>
+        </div>
+
+        <div class="field">
+          <label for="projectSize">Project Size</label>
+          <input type="text" id="projectSize" placeholder="e.g. 1500 sq ft">
+          <div class="err-msg">Please enter an approximate size.</div>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn btn-ghost hidden">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="goNext(1)">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="panel step-panel" data-panel="2" style="display:none;">
+        <div class="watermark">02</div>
+        <div class="eyebrow">Step Two</div>
+        <h2>Your vision for the space</h2>
+        <p class="subtitle">Help our designers understand the style you love.</p>
+
+        <div class="field">
+          <label>Preferred Style</label>
+          <div class="option-grid" data-group="style">
+            <div class="option-card" data-value="Modern"><span class="ring"></span>Modern</div>
+            <div class="option-card" data-value="Luxury"><span class="ring"></span>Luxury</div>
+            <div class="option-card" data-value="Traditional"><span class="ring"></span>Traditional</div>
+            <div class="option-card" data-value="Minimal"><span class="ring"></span>Minimal</div>
+          </div>
+          <div class="err-msg">Please choose a preferred style.</div>
+        </div>
+
+        <div class="field">
+          <label for="numRooms">Number of Rooms</label>
+          <input type="text" id="numRooms" placeholder="e.g. 3 BHK">
+          <div class="err-msg">Please enter number of rooms.</div>
+        </div>
+
+        <div class="field">
+          <label for="ideas">Tell us your ideas</label>
+          <textarea id="ideas" placeholder="Anything specific you have in mind — colours, materials, inspiration..."></textarea>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn btn-ghost" onclick="goBack(2)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="goNext(2)">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="panel step-panel" data-panel="3" style="display:none;">
+        <div class="watermark">03</div>
+        <div class="eyebrow">Step Three</div>
+        <h2>Plan your budget</h2>
+        <p class="subtitle">This helps us tailor recommendations that fit.</p>
+
+        <div class="field">
+          <label>Estimated Budget</label>
+          <div class="option-grid" data-group="budget">
+            <div class="option-card" data-value="Below ₹5 Lakhs"><span class="ring"></span>Below ₹5 Lakhs</div>
+            <div class="option-card" data-value="₹5 - ₹10 Lakhs"><span class="ring"></span>₹5 – ₹10 Lakhs</div>
+            <div class="option-card" data-value="₹10 - ₹20 Lakhs"><span class="ring"></span>₹10 – ₹20 Lakhs</div>
+            <div class="option-card" data-value="Above ₹20 Lakhs"><span class="ring"></span>Above ₹20 Lakhs</div>
+          </div>
+          <div class="err-msg">Please choose an estimated budget.</div>
+        </div>
+
+        <div class="field">
+          <label for="startDate">Expected Start Date</label>
+          <input type="date" id="startDate">
+          <div class="err-msg">Please select an expected start date.</div>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn btn-ghost" onclick="goBack(3)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="goNext(3)">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="panel step-panel" data-panel="4" style="display:none;">
+        <div class="watermark">04</div>
+        <div class="eyebrow">Step Four</div>
+        <h2>Your details</h2>
+        <p class="subtitle">So our design team can reach you.</p>
+
+        <div class="field">
+          <label for="fullName">Name</label>
+          <input type="text" id="fullName" placeholder="Your full name">
+          <div class="err-msg">Please enter your name.</div>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="10-digit mobile number">
+          <div class="err-msg">Please enter a valid phone number.</div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span style="text-transform:none;color:var(--ink-soft);">(optional)</span></label>
+          <input type="email" id="email" placeholder="you@example.com">
+          <div class="err-msg">Please enter a valid email.</div>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn btn-ghost" onclick="goBack(4)">← Back</button>
+          <button type="button" class="btn btn-primary btn-whatsapp" onclick="submitToWhatsApp()">Submit via WhatsApp →</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- CONFIRMATION -->
+    <div class="panel confirm" data-panel="confirm" style="display:none;">
+      <div class="mark">✓</div>
+      <h2>Thank You!</h2>
+      <div class="foot-note">
+        your details are sent directly to Sree Varahi Dream & Build through WhatsApp — nothing is stored on our servers.
+      </div>
+      <button type="button" class="btn btn-primary btn-whatsapp" id="reopenWaBtn">Open WhatsApp Again</button>
+    </div>
+  </div>
+
+  <div class="foot-note">Your details are sent directly via WhatsApp — nothing is stored on our servers.</div>
+</div>
+
+<script>
+ if (performance.navigation.type === 1) {
+    window.location.href = "index.html";
+}
+  // ====== CONFIGURE THIS ======
+  const WHATSAPP_NUMBER = "919014376354"; // <-- replace with your business number, country code + number, no + or spaces
+  // =============================
+
+  const state = {
+    projectType:"", location:"", projectSize:"",
+    style:"", numRooms:"", ideas:"",
+    budget:"", startDate:"",
+    fullName:"", phone:"", email:""
+  };
+
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  // option card selection
+  document.querySelectorAll('.option-grid').forEach(grid=>{
+    const group = grid.dataset.group;
+    grid.querySelectorAll('.option-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        grid.querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));
+        card.classList.add('selected');
+        state[group] = card.dataset.value;
+        clearFieldError(grid.closest('.field'));
+      });
+    });
+  });
+
+  function clearFieldError(fieldEl){
+    if(fieldEl) fieldEl.classList.remove('invalid');
+  }
+
+  function setFieldError(fieldEl){
+    if(fieldEl) fieldEl.classList.add('invalid');
+  }
+
+  function updateProgress(step){
+    const pct = (step-1)/(totalSteps-1)*100 + (100/(totalSteps-1))*0.0; // handled below more simply
+    document.getElementById('inlayFill').style.width = ((step-1)/(totalSteps-1))*100 + '%';
+    // if on step 1, show at least a sliver
+    if(step===1) document.getElementById('inlayFill').style.width = '4%';
+
+    document.querySelectorAll('.step-dot').forEach(dot=>{
+      const n = parseInt(dot.dataset.step);
+      dot.classList.remove('active','done');
+      if(n < step) dot.classList.add('done');
+      else if(n === step) dot.classList.add('active');
+    });
+    document.querySelectorAll('.step-connector').forEach(conn=>{
+      const n = parseInt(conn.dataset.conn);
+      conn.classList.toggle('done', n < step);
+    });
+  }
+
+  function showPanel(step){
+    document.querySelectorAll('.step-panel').forEach(p=>{
+      p.style.display = (parseInt(p.dataset.panel)===step) ? '' : 'none';
+    });
+    updateProgress(step);
+    currentStep = step;
+  }
+
+  function goBack(from){
+    showPanel(from-1);
+  }
+
+  function validateStep(step){
+    let valid = true;
+
+    function checkOption(group, gridSelector){
+      const grid = document.querySelector(gridSelector);
+      const field = grid.closest('.field');
+      if(!state[group]){
+        setFieldError(field);
+        valid = false;
+      } else {
+        clearFieldError(field);
+      }
+    }
+    function checkText(id){
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      if(!input.value.trim()){
+        setFieldError(field);
+        valid = false;
+      } else {
+        clearFieldError(field);
+      }
+    }
+    function checkEmail(id){
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      const v = input.value.trim();
+      if(v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+        setFieldError(field);
+        valid = false;
+      } else {
+        clearFieldError(field);
+      }
+    }
+    function checkPhone(id){
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      const v = input.value.trim().replace(/\D/g,'');
+      if(v.length < 10){
+        setFieldError(field);
+        valid = false;
+      } else {
+        clearFieldError(field);
+      }
+    }
+
+    if(step===1){
+      checkOption('projectType', '[data-group="projectType"]');
+      checkText('location'); state.location = document.getElementById('location').value.trim();
+      checkText('projectSize'); state.projectSize = document.getElementById('projectSize').value.trim();
+    }
+    if(step===2){
+      checkOption('style', '[data-group="style"]');
+      checkText('numRooms'); state.numRooms = document.getElementById('numRooms').value.trim();
+      state.ideas = document.getElementById('ideas').value.trim();
+    }
+    if(step===3){
+      checkOption('budget', '[data-group="budget"]');
+      checkText('startDate'); state.startDate = document.getElementById('startDate').value;
+    }
+    if(step===4){
+      checkText('fullName'); state.fullName = document.getElementById('fullName').value.trim();
+      checkPhone('phone'); state.phone = document.getElementById('phone').value.trim();
+      checkEmail('email'); state.email = document.getElementById('email').value.trim();
+    }
+
+    return valid;
+  }
+
+  function goNext(from){
+    if(!validateStep(from)) return;
+    showPanel(from+1);
+  }
+
+  function formatDate(dateStr){
+    if(!dateStr) return "";
+    const d = new Date(dateStr + "T00:00:00");
+    if(isNaN(d)) return dateStr;
+    return d.toLocaleDateString('en-IN', { month:'long', year:'numeric' });
+  }
+
+  function buildMessage(){
+    const lines = [
+      "New Consultation Request",
+      "",
+      `Name: ${state.fullName}`,
+      `Phone: ${state.phone}`,
+      state.email ? `Email: ${state.email}` : null,
+      "",
+      `Project Type: ${state.projectType}`,
+      `Location: ${state.location}`,
+      `Project Size: ${state.projectSize}`,
+      "",
+      `Style Preference: ${state.style}`,
+      `Number of Rooms: ${state.numRooms}`,
+      state.ideas ? `Requirements:\n${state.ideas}` : null,
+      "",
+      `Budget: ${state.budget}`,
+      `Expected Start Date: ${formatDate(state.startDate)}`
+    ].filter(l => l !== null);
+    return lines.join("\n");
+  }
+
+  let lastWaUrl = "";
+
+  function submitToWhatsApp(){
+    if(!validateStep(4)) return;
+    const message = buildMessage();
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    lastWaUrl = url;
+    window.open(url, '_blank');
+
+    document.querySelectorAll('.step-panel').forEach(p=> p.style.display='none');
+    document.querySelector('[data-panel="confirm"]').style.display = '';
+    document.getElementById('inlayFill').style.width = '100%';
+    document.querySelectorAll('.step-dot').forEach(dot=>{
+      dot.classList.remove('active');
+      dot.classList.add('done');
+    });
+    document.querySelectorAll('.step-connector').forEach(conn=> conn.classList.add('done'));
+  }
+
+  document.getElementById('reopenWaBtn').addEventListener('click', ()=>{
+    if(lastWaUrl) window.open(lastWaUrl, '_blank');
+  });
+
+  updateProgress(1);
+</script>
+</body>
+</html>
