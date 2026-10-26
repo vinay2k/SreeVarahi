@@ -425,11 +425,6 @@ footer{
 
 }
 @media(max-width:900px){
-  body{
-background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;  }
  nav ul{
         background-image:url("../imgs/mobile-nav.jpeg");
         background-repeat:no-repeat;
